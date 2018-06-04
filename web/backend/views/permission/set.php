@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 if(v.name == selfVal){
                     self.attr('checked' , 'true');
                     num++;
-                };
+                }
             });
         });
         var nums = $('.chk').size(); //全选勾中

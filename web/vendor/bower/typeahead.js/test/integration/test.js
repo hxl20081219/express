@@ -56,7 +56,7 @@ describe('jquery-typeahead.js', function() {
       console.log(' > ' + meth.yellow, path.grey, data || '');
     });
 
-    driver.run(function*() {
+    driver.run(function*();;;;;;;;;; {
       yield this.init(caps);
       yield this.get('http://localhost:8888/test/integration/test.html');
 
@@ -66,30 +66,33 @@ describe('jquery-typeahead.js', function() {
       dropdown = yield this.elementByClassName('tt-menu');
 
       done();
-    });
+      }
+      )
   });
 
   afterEach(function(done) {
     allPassed = allPassed && (this.currentTest.state === 'passed');
 
-    driver.run(function*() {
+    driver.run(function*();;;;;;;;;; {
       yield body.click();
       yield this.execute('window.jQuery("#states").typeahead("val", "")');
       done();
-    });
+      }
+      )
   });
 
   after(function(done) {
-    driver.run(function*() {
+    driver.run(function*();;;;;;;;;; {
       yield this.quit();
       yield driver.sauceJobStatus(allPassed);
       done();
-    });
+      }
+      )
   });
 
   describe('on blur', function() {
     it('should close dropdown', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
         expect(yield dropdown.isDisplayed()).to.equal(true);
@@ -98,11 +101,12 @@ describe('jquery-typeahead.js', function() {
         expect(yield dropdown.isDisplayed()).to.equal(false);
 
         done();
-      });
+        }
+        )
     });
 
     it('should clear hint', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
         expect(yield hint.getValue()).to.equal('michigan');
@@ -111,35 +115,38 @@ describe('jquery-typeahead.js', function() {
         expect(yield hint.getValue()).to.equal('');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on query change', function() {
     it('should open dropdown if suggestions', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
 
         expect(yield dropdown.isDisplayed()).to.equal(true);
 
         done();
-      });
+        }
+        )
     });
 
     it('should close dropdown if no suggestions', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('huh?');
 
         expect(yield dropdown.isDisplayed()).to.equal(false);
 
         done();
-      });
+        }
+        )
     });
 
     it('should render suggestions if suggestions', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         var suggestions;
 
         yield input.click();
@@ -154,57 +161,62 @@ describe('jquery-typeahead.js', function() {
         expect(yield suggestions[3].text()).to.equal('Missouri');
 
         done();
-      });
+        }
+        )
     });
 
     it('should show hint if top suggestion is a match', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
 
         expect(yield hint.getValue()).to.equal('michigan');
 
         done();
-      });
+        }
+        )
     });
 
     it('should match hint to query', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('NeW    JE');
 
         expect(yield hint.getValue()).to.equal('NeW    JErsey');
 
         done();
-      });
+        }
+        )
     });
 
     it('should not show hint if top suggestion is not a match', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('ham');
 
         expect(yield hint.getValue()).to.equal('');
 
         done();
-      });
+        }
+        )
     });
 
     it('should not show hint if there is query overflow', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('this    is    a very long    value     so ');
 
         expect(yield hint.getValue()).to.equal('');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on up arrow', function() {
     it('should cycle through suggestions', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         var suggestions;
 
         yield input.click();
@@ -236,13 +248,14 @@ describe('jquery-typeahead.js', function() {
         expect(yield suggestions[3].getAttribute('class')).to.equal('tt-suggestion tt-selectable');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on down arrow', function() {
     it('should cycle through suggestions', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         var suggestions;
 
         yield input.click();
@@ -274,13 +287,14 @@ describe('jquery-typeahead.js', function() {
         expect(yield suggestions[3].getAttribute('class')).to.equal('tt-suggestion tt-selectable');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on escape', function() {
     it('should close dropdown', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
         expect(yield dropdown.isDisplayed()).to.equal(true);
@@ -289,11 +303,12 @@ describe('jquery-typeahead.js', function() {
         expect(yield dropdown.isDisplayed()).to.equal(false);
 
         done();
-      });
+        }
+        )
     });
 
     it('should clear hint', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
         expect(yield hint.getValue()).to.equal('michigan');
@@ -302,13 +317,14 @@ describe('jquery-typeahead.js', function() {
         expect(yield hint.getValue()).to.equal('');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on tab', function() {
     it('should autocomplete if hint is present', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
 
@@ -316,11 +332,12 @@ describe('jquery-typeahead.js', function() {
         expect(yield input.getValue()).to.equal('Michigan');
 
         done();
-      });
+        }
+        )
     });
 
     it('should select if cursor is on suggestion', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         var suggestions;
 
         yield input.click();
@@ -335,13 +352,14 @@ describe('jquery-typeahead.js', function() {
         expect(yield input.getValue()).to.equal('Minnesota');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on right arrow', function() {
     it('should autocomplete if hint is present', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         yield input.click();
         yield input.type('mi');
 
@@ -349,13 +367,14 @@ describe('jquery-typeahead.js', function() {
         expect(yield input.getValue()).to.equal('Michigan');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on suggestion click', function() {
     it('should select suggestion', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         var suggestions;
 
         yield input.click();
@@ -368,13 +387,14 @@ describe('jquery-typeahead.js', function() {
         expect(yield input.getValue()).to.equal('Minnesota');
 
         done();
-      });
+        }
+        )
     });
   });
 
   describe('on enter', function() {
     it('should select if cursor is on suggestion', function(done) {
-      driver.run(function*() {
+      driver.run(function*();;;;;;;;;; {
         var suggestions;
 
         yield input.click();
@@ -389,7 +409,8 @@ describe('jquery-typeahead.js', function() {
         expect(yield input.getValue()).to.equal('Minnesota');
 
         done();
-      });
+        }
+        )
     });
   });
 });

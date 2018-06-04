@@ -130,7 +130,7 @@ function launchParticlesJS(tag_id, params){
   if(pJS.retina_detect && window.devicePixelRatio > 1){
     pJS.retina = true;
   
-    pJS.canvas.pxratio = window.devicePixelRatio
+    pJS.canvas.pxratio = window.devicePixelRatio;
     pJS.canvas.w = pJS.canvas.el.offsetWidth * pJS.canvas.pxratio;
     pJS.canvas.h = pJS.canvas.el.offsetHeight * pJS.canvas.pxratio;
     pJS.particles.anim.speed = pJS.particles.anim.speed * pJS.canvas.pxratio;
@@ -181,7 +181,7 @@ function launchParticlesJS(tag_id, params){
 
   pJS.fn.canvasRemove = function(){
     pJS.canvas.ctx.clearRect(0, 0, pJS.canvas.w, pJS.canvas.h);
-  }
+  };
 
 
   /* --------- PARTICLES functions ----------- */
@@ -400,13 +400,13 @@ function launchParticlesJS(tag_id, params){
                 )
               }
             }
-          }
+          };
         break;
 
         case 'remove':
           detect_el.onclick = function(e){
             pJS.particles.array.splice(0, pJS.interactivity.events.onclick.nb);
-          }
+          };
         break;
       }
     }
@@ -451,16 +451,12 @@ function launchParticlesJS(tag_id, params){
     pJS.fn.canvasPaint();
     pJS.fn.particlesCreate();
     pJS.fn.particlesDraw();
-  };
-
-
-  function launchAnimation(){
+  }
+    function launchAnimation(){
     pJS.fn.particlesDraw();
     pJS.fn.requestAnimFrame = requestAnimFrame(launchAnimation);
-  };
-
-
-  launchParticles();
+  }
+    launchParticles();
 
   if(pJS.particles.anim.enable){
     launchAnimation();
@@ -471,8 +467,7 @@ function launchParticlesJS(tag_id, params){
   }
 
 
-};
-
+}
 /* --- VENDORS --- */
 
 window.requestAnimFrame = (function(){
@@ -508,9 +503,7 @@ function hexToRgb(hex){
       g: parseInt(result[2], 16),
       b: parseInt(result[3], 16)
   } : null;
-};
-
-
+}
 /* --- LAUNCH --- */
 
 window.particlesJS = function(tag_id, params){
